@@ -1,0 +1,30 @@
+<business>
+    <zoo address="Ramat gan" manager="Maayan Politzer" opening-time="9:00-19:00">
+        <employees>
+            <employee name="Joe" id="012345678" gender="male" address="NY" />
+            <employee name="Moshe" id="3456345" gender="male" address="NY" />
+            <employee name="Moran" id="987987" gender="Female" address="Givatayim" />
+            <employee name="Zohar" id="987986" gender="male" address="NY" />
+            <employee/>
+            <employee/>
+        </employees>
+        <animals>
+            <reptiles>
+                <aligator/>
+            </reptiles>
+            <mammals>
+
+            </mammals>
+            <cats>
+                <lion/>
+                <tiger/>
+                <cheeta/>
+                <cat/>
+            </cats>
+        </animals>
+    </zoo>
+
+    <coffee>
+
+    </coffee>
+</business>
