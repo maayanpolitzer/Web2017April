@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 50px;
+            width: 903px;
+        }
+        
+        h3 {
+            float: left;
+            margin: 0;
+        }
+        
+        ul {
+            float: right;
+            list-style: none;
+            margin: 0;
+        }
+        
+        li {
+            display: inline-block;
+            margin: -2px;
+            padding: 8px;
+        }
+        
+        #first {
+            background-color: #5c5c5c;
+            color: #fff;
+        }
+        
+        #second {
+            background-color: #dbdbdb;
+            color: #83897c;
+        }
+        
+        table {
+            background: linear-gradient(to right, #fff, #f0f0f0);
+        }
+        
+        table,
+        td {
+            clear: both;
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        
+        tr:first-child {
+            background-color: #5c5c5c;
+            color: #fff;
+            border-bottom: 2px solid #ae3a3a;
+        }
+        
+        td {
+            width: 450px;
+            height: 50px;
+        }
+        
+        select,
+        input {
+            width: 173px;
+            padding: 6px;
+            background: linear-gradient(to right, #fff, #f0f0f0);
+        }
+        
+        button {
+            margin-top: 50px;
+            margin-left: 50%;
+            transform: translate(-50%);
+            padding: 8px;
+            border: 1px solid #bbb;
+            background: linear-gradient(to right, #f0f0f0, #fff);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <h3>+CREATE NEW CAMPAIGN</h3>
+        <ul>
+            <li id="first">ADD CAMPAIGN</li>
+            <li id="second">REVIEW</li>
+        </ul>
+        <table>
+            <tr>
+                <td colspan="2">> Step 1: Campaign info</td>
+            </tr>
+            <tr>
+                <td>Campaign name</td>
+                <td><input/></td>
+            </tr>
+            <tr>
+                <td>Daily budget</td>
+                <td><input placeholder="Min $10/day" /></td>
+            </tr>
+            <tr>
+                <td>Campaign type</td>
+                <td>
+                    <select>
+                        <option>Diaog click to message</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Start date</td>
+                <td>
+                    <input placeholder="YYYY-MM-DD H:I" />
+                </td>
+            </tr>
+            <tr>
+                <td>End date</td>
+                <td>
+                    <input placeholder="YYYY-MM-DD H:I" />
+                </td>
+            </tr>
+            <tr>
+                <td>Catagory</td>
+                <td>
+                    <select>
+                        <option>Select catagory</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Platform type</td>
+                <td>
+                    <select>
+                        <option>select platform</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button>ADD CAMPAIGN</button>
+
+    </div>
+
+
+</body>
+
+</html>

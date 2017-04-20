@@ -1,0 +1,85 @@
+<html>
+
+<head>
+
+    <script>
+        var x;
+        x = 90;
+        var y = 70;
+        var z = 20;
+
+        var a = [];
+        a.push(-9);
+        a.push(-60);
+        a.push(-3);
+        a.push(-400);
+        a.push(-7);
+        a.push(-57);
+
+
+
+        //console.log(84);
+
+        //console.log(a);
+
+        //var l = sum(a);
+        //console.log(l); // 416;
+
+        // var ra = rev(a);
+        // console.log(a);
+        // console.log(ra);
+
+        //var number = average(x, y, z);
+        //console.log(number);
+
+
+        var number = max(a); //60
+        console.log(number);
+
+        function max(arr) {
+            var maxSoFar = arr[0];
+            for (var i = 1; i < arr.length; i++) {
+                if (arr[i] > maxSoFar) {
+                    maxSoFar = arr[i];
+                }
+            }
+            return maxSoFar;
+        }
+
+
+        function rev(arr) {
+            // create a new array.
+            var e = [];
+            // insert(push) data from arr reverse.
+
+            for (var i = arr.length - 1; i >= 0; i--) {
+                e.push(arr[i]);
+            }
+
+            // return the new array.
+            return e;
+
+        }
+
+        function average(num1, num2, num3) {
+            var sum = num1 + num2 + num3;
+            return sum / 3;
+        }
+
+        function sum(arr) {
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum;
+        }
+
+    </script>
+</head>
+
+<body>
+
+
+</body>
+
+</html>
