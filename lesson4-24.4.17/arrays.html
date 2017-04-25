@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <script>
+        var x = [19, -7, -406, 108, 76, -3, 108, 234];
+        var y = [82, 91, 62, 97, 42];
+        var z = [];
+        var z1 = [0];
+        var z2 = [5];
+        //var names = ["hetzeliya", "ramat gan", "tzur yitzhak", "tel aviv"];
+
+        //incrementNumbersInArray(y, 500);
+        //printArray(y);
+
+        factorArrayWithMax(y, 12, 100);
+        console.log(y);
+        console.log(howManyTimesInArray(x, 108));
+        console.log(isInArray(y, 74));
+
+        //console.log(x.length);
+        /*
+        console.log(x[0]);
+        console.log(x[1]);
+        console.log(x[2]);
+        console.log(x[3]);
+        */
+
+        function howManyTimesInArray(arr, number) {
+            var counter = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == number) {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+
+        function factorArrayWithMax(arr, factor, max) {
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] += factor;
+                if (arr[i] > max) {
+                    arr[i] = max;
+                }
+            }
+        }
+
+        function incrementNumbersInArray(arr, number) {
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] += number;
+            }
+        }
+
+        function printArray(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

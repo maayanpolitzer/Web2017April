@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <script>
+        var a = 4;
+        var b = [1, 2, 3, 4, 5];
+
+        incrementNumber(a, 500);
+        incrementArray(b, 500);
+
+        console.log(a);
+        console.log(b);
+
+        function incrementNumber(x, number) { // x (by value) is a copy!!!
+            x += number;
+        }
+
+        function incrementArray(arr, number) { // arr (by reference) is b pointer...
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] += number;
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

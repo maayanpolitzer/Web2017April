@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <script>
+        var counter = 0;
+
+        var x;
+
+        function init() {
+            x = document.getElementById("title");
+        }
+
+        function notify(b) {
+            /*
+            if(b){  // same as if(b == true){
+                counter++;
+            }else{
+                counter--;
+            }
+            */
+            /*
+            b ? counter++ : counter--;
+            x.innerHTML = "clicked: " + counter;
+            */
+            x.innerHTML = "clicked: " + (b ? ++counter : --counter);
+        }
+    </script>
+</head>
+
+<body onload="init();">
+    <h1 id="title">clicked: 0</h1>
+    <div>
+        <h2>menu</h2>
+        <ul>
+            <li>home</li>
+            <li>about</li>
+            <li>portfolio</li>
+            <li>signup</li>
+            <li>login</li>
+        </ul>
+    </div>
+    <button onclick="notify(true);">add</button>
+    <button onclick="notify(false);">remove</button>
+    <img src="" />
+    <footer></footer>
+
+</body>
+
+</html>
