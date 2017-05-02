@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <script>
+        var arr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var firstPlayer = true;
+
+        function init() {
+            for (var i = 0; i < arr.length; i++) {
+                var div = document.createElement("div");
+                div.setAttribute("onclick", "clicked(this, " + i + ");");
+                if (i == 3 || i == 6) {
+                    div.setAttribute("class", "first");
+                }
+                document.body.appendChild(div);
+            }
+        }
+
+
+        function clicked(div, index) {
+            //console.log(index);
+            //div.style.background = "#ff0000";
+            /*
+            if (firstPlayer) { // same as if(firstPlayer == true){
+                div.innerHTML = "X";
+                firstPlayer = false;
+            } else {
+                div.innerHTML = "O";
+                firstPlayer = true;
+            }
+            */
+            // change the array to 1(x) or 2(O).
+            if (arr[index] == 0) {
+                arr[index] = firstPlayer ? 1 : 2;
+                console.log(arr);
+
+                checkWinning();
+
+                div.innerHTML = firstPlayer ? "X" : "O";
+                firstPlayer = !firstPlayer;
+            }
+        }
+
+        function checkWinning() {
+            /*
+            winning indexes from array that are the same!
+            [0],[1],[2]
+            [3],[4],[5]
+            [6],[7],[8]
+            [0],[3],[6]
+            [1],[4],[7]
+            [2],[5],[8]
+            [0],[4],[8]
+            [2],[4],[6]
+            */
+        }
+
+    </script>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            float: left;
+            margin: 5px;
+        }
+        
+        .first {
+            clear: left;
+        }
+
+    </style>
+</head>
+
+<body onload="init();">
+
+</body>
+
+</html>

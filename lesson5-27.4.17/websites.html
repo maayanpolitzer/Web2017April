@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        iframe {
+            height: 500px;
+            width: 500px;
+        }
+
+    </style>
+    <script>
+        //var links = ["http://www.one.co.il", "http://www.facebook.com", "http://www.yahoo.com"];
+
+        /*
+        var arr = [
+            ["חדשות", "http://www.ynet.co.il"],
+            ["ספורט", "http://www.one.co.il"],
+            ["רשת חברתית", "http://www.facebook.com"]
+        ];
+        */
+
+        var arr = [{
+                title: "חדשות",
+                link: "http://www.ynet.co.il"
+            },
+            {
+                title: "ספורט",
+                link: "http://www.one.co.il"
+            },
+            {
+                title: "רשת חברתית",
+                link: "http://www.walla.co.il"
+            }
+        ];
+
+        var select;
+
+        function init() {
+            select = document.getElementById("select");
+            for (var i = 0; i < arr.length; i++) {
+                var element = document.createElement("option");
+                //element.innerHTML = arr[i][0];  //  2D array.
+                element.innerHTML = arr[i].title; //  objects array. 
+                select.appendChild(element);
+                //select.innerHTML += "<option>" + arr[i][0] + "</option>";
+            }
+        }
+
+
+        function websiteSelected() {
+            /*
+            var index = select.selectedIndex - 1;
+            //arr[index][1];
+            var link = arr[index].link;
+            var iframe = document.getElementById("iframe");
+            iframe.src = link;
+            */
+            document.getElementById("iframe").src = arr[select.selectedIndex - 1].link;
+        }
+
+    </script>
+
+</head>
+
+<body onload="init();">
+    <select id="select" onchange="websiteSelected();">
+        <option disabled selected>בחר אתר</option>
+    </select>
+    <br/>
+    <iframe id="iframe" src="" />
+
+</body>
+
+</html>

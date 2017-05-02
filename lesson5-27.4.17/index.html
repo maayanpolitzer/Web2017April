@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <style>
+        img {
+            height: 500px;
+        }
+    </style>
+    <script>
+        var images = ["img1.jpg", "img2.jpg", "img3.jpg"];
+        var img;
+        var i = 0;
+
+        function loadFirstImage() {
+            img = document.getElementById("image");
+            img.src = images[i];
+        }
+
+        function changeImage(x) {
+            /*
+            if (x) { // same as: if(x == true){
+                i++;
+                if (i == images.length) {
+                    i = 0;
+                }
+            } else {
+                i--;
+                if (i < 0) {
+                    i = images.length - 1;
+                }
+            }
+            img.src = images[i];
+            */
+            x ? i++ : i--;  
+            /*
+            if(x){
+                i++;
+            }else{
+                i--;
+            }
+            */
+            if (i == images.length) {
+                i = 0;
+            }
+            if (i < 0) {
+                i = images.length - 1;
+            }
+            img.src = images[i];
+        }
+    </script>
+</head>
+
+<body onload="loadFirstImage();">
+    <img id="image" src="" />
+    <button onclick="changeImage(true);">next</button>
+    <button onclick="changeImage(false);">previous</button>
+</body>
+
+</html>
