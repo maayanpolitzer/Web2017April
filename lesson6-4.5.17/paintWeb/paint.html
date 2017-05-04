@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <link href="style.css" rel="stylesheet" />
+
+    <script src="functions.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+
+    <script>
+        var tableVisible = false;
+
+        function changeTableDisplay() {
+            //changeVisibility("table");
+            $("#table").fadeToggle();
+
+
+
+            /*
+            var table = document.getElementById("table");
+            */
+            /*
+            if (tableVisible) { // same as: if(tableVisible == true){
+                // need to hide the table.
+                table.style.visibility = "hidden";
+                tableVisible = false;
+            } else {
+                // need to show the table.
+                table.style.visibility = "visible";
+                tableVisible = true;
+            }
+            */
+            /*
+            table.style.visibility = tableVisible ? "hidden" : "visible";
+            tableVisible = !tableVisible;
+            */
+        }
+
+
+
+        function saveBtnClicked() {
+
+            //var redValue = document.getElementById("red").value;    // with javascript.
+            var redValue = $("#red").val();
+            var greenValue = $("#green").val();
+            var blueValue = $("#blue").val();
+            var color = "rgb(" + redValue + ", " + greenValue + ", " + blueValue + ")";
+
+            $("#preview").css("background-color", color);
+            /*
+            //var li = document.createElement("li");
+            var li = $("<li></li>"); // create element in jQuery.
+            $("#list").append(li);
+            */
+
+
+        }
+
+        function init() {
+            $("#save").click(saveBtnClicked);
+        }
+
+    </script>
+
+</head>
+
+<body onload="init();">
+    <div id="wrapper">
+        <canvas id="canvas">not working...</canvas>
+        <ul id="list">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <button id="addNew" onclick="changeTableDisplay();">add new</button>
+        <table id="table">
+            <tr>
+                <td rowspan="3">
+                    <div id="preview"></div>
+                </td>
+                <td>Red</td>
+                <td>
+                    <input id="red" type="range" min="0" max="255" />
+                </td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>
+                    <input id="green" type="range" min="0" max="255" />
+                </td>
+            </tr>
+            <tr>
+                <td>Blue</td>
+                <td>
+                    <input id="blue" type="range" min="0" max="255" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <button id="save">save</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+</body>
+
+</html>
