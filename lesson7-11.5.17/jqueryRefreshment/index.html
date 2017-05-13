@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #000;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        /*
+                        $(document).ready(load);
+
+                        function load() {
+                            $("#btn").click(btnClick);
+                        }
+
+                        function btnClick() {
+                            $("#image").attr("src", "on.jpg");
+                        }
+                        */
+
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                if ($("#image").attr("src") == "off.jpg") {
+                    $("#image").attr("src", "on.jpg");
+                    $("#btn").text("off");
+                } else {
+                    $("#image").attr("src", "off.jpg");
+                    $("#btn").text("on");
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <img id="image" src="off.jpg" />
+    <button id="btn">on</button>
+
+
+</body>
+
+</html>

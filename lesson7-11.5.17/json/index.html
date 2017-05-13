@@ -1,0 +1,46 @@
+<html>
+    <head>
+
+    <script>
+        var jsonObject = {
+            "name": "Maayan",
+            "age": 30,
+            "address": "TLV"
+        };
+
+        //alert(jsonObject.age);
+
+        var jsonArray = [{
+            "year": 1994
+        }, {
+            "year": 2007
+        }];
+
+        //alert(jsonArray[0].year);
+        //alert(jsonArray.length);
+
+        var json = {
+            "name": "Maayan",
+            "age": 30,
+            "parents": [{
+                "year": 1950
+            }, {
+                "year": 1953
+            }]
+        };
+
+        //alert(json.parents[1].year);
+
+        var parents = json.parents;
+        for (var i = 0; i < parents.length; i++) {
+            alert(parents[i].year);
+        }
+    </script>
+</head>
+
+<body>
+
+
+
+</body>
+</html>

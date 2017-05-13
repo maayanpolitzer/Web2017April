@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            /*
+            $("#btn").click(function() {
+                var name = $("#name").val();
+                $.ajax({
+                    url: "http://www.omdbapi.com?s=" + name,
+                    success: function(data) {
+                        var results = data.Search;
+                        for (var i = 0; i < results.length; i++) {
+                            var img = $("<img/>");
+                            img.attr("src", results[i].Poster);
+                            $("#movies").append(img);
+                        }
+
+                    },
+                    error: function(error) {
+
+                    }
+                });
+            });
+            */
+            $("#name").on("input", function() {
+                var name = $("#name").val();
+
+                $.ajax({
+                    url: "http://www.omdbapi.com?s=" + name,
+                    success: function(data) {
+                        deleteData();
+                        var results = data.Search;
+                        for (var i = 0; i < results.length; i++) {
+                            if (results[i].Poster != "N/A") {
+                                var img = $("<img/>");
+                                img.attr("src", results[i].Poster);
+                                $("#movies").append(img);
+                            }
+                        }
+                    },
+                    error: function(error) {
+
+                    }
+
+
+                });
+
+            });
+        });
+
+        function deleteData() {
+            $("#movies").html("");
+        }
+
+    </script>
+</head>
+
+<body>
+    <input id="name" type="text" placeholder="Enter your name" />
+    <button id="btn">send</button>
+    <div id="movies"></div>
+</body>
+
+</html>
