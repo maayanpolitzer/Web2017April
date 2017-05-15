@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <style>
+        #errorMessage {
+            color: #ff0000;
+            visibility: hidden;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="cookies.js"></script>
+    <script>
+        function displayErrorMessage(content) {
+            $("#errorMessage").html(content);
+            $("#errorMessage").css("visibility", "visible");
+        }
+
+        $(document).ready(function() {
+            if (getCookie("EMAIL") != null) {
+                window.location = "main.html";
+                return;
+            }
+
+            $("#loginBtn").click(function() {
+                var email = $("#emailInput").val();
+                var password = $("#passwordInput").val();
+                if (email.length < 6 || password.length == 0) {
+                    displayErrorMessage("Please enter a valid email and password");
+                    return;
+                }
+                // HTTP request using POST method
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://104.199.43.149/Whatsapp_war/",
+                    data: "action=login&email=" + email + "&password=" + password,
+                    success: function(data) {
+                        //console.log(data);
+                        if (data.result == -1) {
+                            displayErrorMessage("User does not exists.");
+                        } else {
+                            setCookie("EMAIL", email, 365);
+                            setCookie("PASSWORD", password, 365);
+                            setCookie("ID", data.result, 365);
+                            window.location = "main.html";
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+
+
+                /*
+                
+                // HTTP request using GET method.
+                
+                $.ajax({
+                    type: "GET",
+                    url: "http://104.199.43.149/Whatsapp_war/?name=bubu",
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+                */
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <input id="emailInput" type="email" placeholder="Enter your email" />
+    <br/>
+    <input id="passwordInput" type="password" placeholder="Password" />
+    <br/>
+    <p id="errorMessage">not exists!</p>
+    <button id="loginBtn">Login</button>
+
+    <p>Don't have an account yet? <a href="register.html">REGISTER HERE</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 275px;
+    background: url(img/banner_large.jpg) no-repeat right 0px;
+}
+
+header a.logo {
+    display: block;
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 85px;
+    background-image: url(img/logo_large.png);
+}

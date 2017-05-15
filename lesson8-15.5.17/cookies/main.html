@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="cookies.js"></script>
+    <script>
+        $(document).ready(function() {
+            var name = getCookie("EMAIL");
+            if (name == null) {
+                window.location = "index.html";
+                return;
+            }
+            $("#welcome").html("Welcome " + name);
+
+            $("#logoutBtn").click(function() {
+                delCookie("EMAIL");
+                delCookie("PASSWORD");
+                delCookie("ID");
+                window.location = "index.html";
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1 id="welcome"></h1>
+    <button id="logoutBtn">Logout</button>
+
+</body>
+
+</html>

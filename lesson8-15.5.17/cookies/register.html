@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <style>
+        #errorMessage {
+            color: #ff0000;
+            visibility: hidden;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="cookies.js"></script>
+    <script>
+        function displayErrorMessage(content) {
+            $("#errorMessage").html(content);
+            $("#errorMessage").css("visibility", "visible");
+        }
+
+        $(document).ready(function() {
+            $("#registerBtn").click(function() {
+                var email = $("#emailInput").val();
+                var password = $("#passwordInput").val();
+                var confirmPassword = $("#confirmPasswordInput").val();
+                if (email.length < 6 || password.length == 0 || password != confirmPassword) {
+                    displayErrorMessage("Please enter a valid email and password");
+                    return;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://104.199.43.149/Whatsapp_war/",
+                    data: "action=register&email=" + email + "&password=" + password,
+                    success: function(data) {
+                        //console.log(data);
+                        if (data.result == -1) {
+                            displayErrorMessage("User already exists.");
+                        } else {
+                            setCookie("EMAIL", email, 365);
+                            setCookie("PASSWORD", password, 365);
+                            setCookie("ID", data.result, 365);
+                            window.location = "main.html";
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <input id="emailInput" type="email" placeholder="Enter your email" />
+    <br/>
+    <input id="passwordInput" type="password" placeholder="Password" />
+    <br/>
+    <input id="confirmPasswordInput" type="password" placeholder="Confirm password" />
+    <br/>
+    <p id="errorMessage"></p>
+    <button id="registerBtn">Signup</button>
+
+
+</body>
+
+</html>
